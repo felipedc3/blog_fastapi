@@ -17,6 +17,9 @@ dependencies = [
     "pytest-mock (>=3.15.1,<4.0.0)"
 ]
 
+[tool.poetry]
+package-mode = false
+
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 pythonpath = ["."]
