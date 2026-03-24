@@ -13,6 +13,7 @@ from src.exceptions import NotFoundPostError
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     from src.models.post import posts  #noqa
+    
     await database.connect()
     metadata.create_all(engine)
     yield
