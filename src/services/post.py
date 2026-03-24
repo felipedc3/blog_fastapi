@@ -17,10 +17,11 @@ class PostService:
         published_at = post.published_at
         if published_at is not None:
             published_at = published_at.astimezone(timezone.utc)
+
         command = posts.insert().values(
             title=post.title,
             content=post.content,
-            published_at=post.published_at,
+            published_at=published_at,
             published=post.published,
         )
         return await database.execute(command)
