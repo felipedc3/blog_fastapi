@@ -16,7 +16,7 @@ class PostService:
     async def create(self, post: PostIn) -> int:
         published_at = post.published_at
         if published_at is not None:
-            published_at = post.published_at.replace(tzinfo=None)
+            published_at = post.published_at.replace(tzinfo=None)  # type: ignore
 
         command = posts.insert().values(
             title=post.title,
