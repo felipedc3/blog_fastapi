@@ -16,7 +16,7 @@ class PostService:
     async def create(self, post: PostIn) -> int:
         published_at = post.published_at
         if published_at is not None:
-            published_at = published_at.astimezone(timezone.utc)
+            published_at = published_at.replace(tzinfo=None)
 
         command = posts.insert().values(
             title=post.title,
